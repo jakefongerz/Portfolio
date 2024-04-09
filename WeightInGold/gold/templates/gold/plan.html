@@ -1,0 +1,167 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'gold/style.css' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SDP</title>
+
+</head>
+
+<body style="color: black" class="stuff-box" >
+<h1>SOFTWARE DEVELOPMENT PLAN</h1>
+
+<div style="background:PaleTurquoise" class="stuff-box">
+
+   <h3>Return to home by <a href="/gold/">clicking here</a></h3>
+
+
+</div>
+<h2>ASSIGNMENT 4</h2>
+<div style="background-color: SkyBlue" class="stuff-box">
+<h2>Phase 0: Requirements Specification </h2>
+    <h2>Overview</h2>
+    <p>Create a web ap that uses two different apis (nadaq) and unitconv (which i make).
+        This apis are used to get the current val of gold and then take a weight and see what its worth in gold</p>
+<h3>Objectives:</h3>
+    <ul>
+        <li>write a simple single page application (SPA) which updates its UI without reloading the page</li>
+        <li>use the <code>fetch()</code> browser function to make an asynchronous request in the background</li>
+        <li>form a GET request to retrieve relevant data</li>
+        <li>gracefully handle errors that may arise</li>
+        <li>create a database-driven RESTful API</li>
+        <li>Consume JSON data from a 3rd-party API</li>
+        <li>Use the framework to dynamically modify webpages and create an interactive client-side experience</li>
+        <li>Gain familiarity with the Document Object Model</li>
+        <li>use posts to connect with server and db</li>
+        <li>Store arithmetic expression records in a database</li>
+        <li>Use database queries to retrieve records that meet specific criteria</li>
+        <li>Validate user input both on the client and server sides</li>
+        <li>Detect errors in arithmetic expressions such as missing or invalid operands, invalid operators, undefined or infinite results</li>
+        <li>Compare the results of arithmetic expressions as evaluated by JavaScript and Python</li>
+    </ul>
+
+<h3>Requirements</h3>
+    <p><strong>Overview: </strong>  make use of the JavaScript DOM API to write an interactive calculator app that can POST its results to a database</p>
+    <ul>
+        <li><a href="https://docs.djangoproject.com/en/4.1/intro/tutorial01/">Django</a>: use this when needed</li>
+        <li>Start a brand-new Django project to contain this assignment. This assignment is composed of two Django apps</li>
+        <li>A RESTful unit conversion API</li>
+        <li>An app providing a single page UI that uses the RESTful unit conversion API</li>
+        <li>Each page must be clearly identified by a title and a heading. </li>
+        <li>each page must a common navigation section with links to all other pages.</li>
+        <li>Each page should link to the same CSS file to give the entire app a consistent style</li>
+        <li>move old files over</li>
+    </ul>
+    <h4>Conversions</h4>
+    <ol>
+        <li>ratio is thanks to googles conversion calc</li>
+        <li>conversion factors: 1 pound = 14.5833 troy_oz</li>
+        <li>conversion factors: 1 uS ton = 29166.7 troy_oz </li>
+        <li>conversion factors: 1 gram = 0.0321507 troy_oz</li>
+        <li>conversion factors: 1 kg = 32.1507 troy_oz</li>
+        <li>conversion factors: 1 oz = 0.911458 troy_oz</li>
+    </ol>
+
+    <h4>unitConv API</h4>
+    <p>has the following parameters...</p>
+        <ul>
+        <li><strong>from</strong> is a string which identifies the type of units the input value represents</li>
+        <li><strong>value</strong> is a non-negative floating-point number representing the number of from units</li>
+        <li><strong>to</strong> is a string representing the type of units the user wants value converted into</li>
+</ul>
+    <p>a Django model holds all oof the conversion factors.
+        Create a data migration to initialize the database with the necessary unit conversion factors.
+        This is the only place in your program where you are allowed to hard-code the conversion factors.
+        The API must be capable of converting between all supported units</p>
+
+    <h4>javascript </h4>
+    <p>shows only expressions with undefined results. If there are no undefined expressions.
+        Make an asynchronous GET request using fetch(), requesting the data in JSON format. At minimum the request must include your API key and a limiting range. By default, Nasdaq Data Link responds with all of the data it has since the beginning of its records. Study the documentation to learn how to request only the most recent data point.
+Upon receipt of the request, extract the price in USD per troy ounce of gold from the JSON payload and store it in a global variable so it is available for use when the user clicks the button.This page only shows a title and the navigation links</p>
+
+
+    <h4>Software Development Plan page</h4>
+    <p>follow SDP template</p>
+
+</div>
+
+<div style="background-color: DeepSkyBlue" class="stuff-box">
+    <h2>Phase 1: Design</h2>
+    <p><strong>outline: </strong> Start with making each of the pages and the lines to switch between them</p>
+    <h3>JavaScript</h3>
+    <p><b>go_fetch()</b></p>
+    <p>fetch url + api key</p>
+    <p>get current gold price</p>
+    <p>catch any errors</p>
+    <p><b>fetch_unitconv()</b></p>
+    <p>fetch url with correct parem</p>
+    <p>store data</p>
+    <p><b>createDiv()</b></p>
+    <p>create div</p>
+    <p>if input good fill div</p>
+    <p>if not fill div with error msg</p>
+    <p><b>testinput()</b></p>
+    <p>if NaN or neg return false</p>
+    <p>if not an option return false</p>
+    <p>else true</p>
+
+    <h3>Gold/Views.py</h3>
+    <p>Load html, nothing crazy ref django tutorial</p>
+
+    <h3>unitcov/views.py</h3>
+    <p><b>convert()</b></p>
+    <p>check that request is ok</p>
+    <p>put values in a function to calc the amount in troy oz</p>
+    <p><b>doConv()</b></p>
+    <p>get all the conversion factors</p>
+    <p>the correct num = amount * from ratio then / to ratio</p>
+
+</div>
+
+
+<div style="background-color: DodgerBlue" class="stuff-box">
+<h2>Phase 2: Implementation</h2>
+<h3>----Things to note-----</h3>
+    <p>Keep it simple stupid</p>
+    <p>read the all the hints first</p>
+    <p>Let django do the heavy lifting</p>
+    <p>The Nasdaq Data Link API provides lots of data. It is easy to be overwhelmed by a large JSON response.</p>
+    <p>Spend time in the REPL </p>
+    <p>curl was very helpful.</p>
+
+</div>
+
+<div style="background-color: CornflowerBlue" class="stuff-box">
+<h2>Phase 3: Testing & Debugging</h2>
+
+    <p>A lot of the headers would send over would be duplicated</p>
+    <p><em>forgot to use asynchronous GET causes lots of issues</em></p>
+</div>
+
+<div style="background-color: MediumSlateBlue" class="stuff-box">
+<h2>Phase 4: Deployment</h2>
+<p>pushed and all good to go B)</p>
+</div>
+
+<div style="background-color: RoyalBlue" class="stuff-box">
+<h2>Phase 5: Maintenance</h2>
+<h3>What parts of your program are sloppily written and hard to understand?</h3>
+    <p>I think the sloppiest think i did had to do with my variable names. they are a little confusing</p>
+<h3>Will your documentation make sense to...</h3>
+<P>... your computer's hardware?</P> <em>I think so, it at least is reading it and interoperating it correctly</em>
+<p>..the operating system?</p>
+<p>...to the next version of Python? Yes</p>
+<h3>How easy will it be to add a new feature to this program in a year?</h3>
+<p>I think it is set up well enough such that additions can easily be made</p>
+<h3>Will your program continue to work after upgrading...</h3>
+<p>It should for a long time</p>
+
+</div>
+
+</body>
+
+
+</html>

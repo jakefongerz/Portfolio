@@ -1,0 +1,46 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'gold/style.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weight in Gold</title>
+</head>
+<body onload="go_fetch()">
+<div style="background:Gold" class="stuff-box">
+  <h1>What's Your Weight In Gold?</h1>
+  <p>Input Your Weight And Press the ENTER Box To See What You're Worth!</p>
+  <p>For Your Privacy, Your Results Will disappear When You Click On Them:) </p>
+
+  <div>
+    <label for="weight"></label>
+    <input type="number" id="weight" name="weight" />
+    <label for="units"></label>
+    <select name="units" id="units">
+        <option value="lb">Pounds</option>
+        <option value="T">U.S. Tons</option>
+        <option value="g">Grams</option>
+        <option value="t_oz">Troy Ounces</option>
+        <option value="kg">Kilograms</option>
+        <option value="oz">Ounces</option>
+    </select>
+
+    <button onclick="createDiv()">ENTER</button>
+
+    <p id="gold_price">I was unable to access script.js</p>
+</div>
+
+</div>
+
+<div id="container"></div>
+
+
+<div style="background:rgb(218, 165, 32)" class="stuff-box">
+   <h3>Check out my SDP by <a href="/gold/plan/">clicking here</a></h3>
+</div>
+
+    <script type="text/javascript" src="{% static 'gold/script.js' %}"></script>
+
+
+</body >
+</html>
