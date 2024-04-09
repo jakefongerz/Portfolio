@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SDP</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body style="color: black" class="stuff-box" >
+<h1>SOFTWARE DEVELOPMENT PLAN</h1>
+
+<div style="background:PaleTurquoise" class="stuff-box">
+
+   <h3>Return to home by <a href="index.html">clicking here</a></h3>
+
+</div>
+<h2>ASSIGNMENT 5</h2>
+<div style="background-color: SkyBlue" class="stuff-box">
+<h2>Phase 0: Requirements Specification </h2>
+    <h2>Overview</h2>
+    <p>Vue.jsLinks to an external site. is a front-end framework for creating reactive web applications. Like Django it provides a templating system that automates content generation tasks.  Unlike Django, Vue templates run in the browser. Among other things this enables you to create dynamic pages which can respond to the user in real-time without making a request to the server.  You will use this feature in this assignment to create a webpage which lets you vote on the likelihood of a weather forecast.</p>
+<h3>Objectives:</h3>
+    <ul>
+        <li>Use the Vue.js front-end framework to build a simple, reactive single-page application (SPA)</li>
+        <li>use the <code>fetch()</code> browser function to make an asynchronous request in the background</li>
+        <li>Use conditional rendering to provide the user with feedback for background progress</li>
+        <li>Learn about class and data bindings</li>
+        <li>create a database-driven RESTful API</li>
+        <li>Consume JSON data from a 3rd-party API</li>
+        <li>Take advantage of Vue's reactivity system to automatically update parts of the app on-demand</li>
+        <li>Gain familiarity with the Document Object Model</li>
+        <li>use posts to connect with server and access weather forecast data through a 3rd-party API</li>
+        <li>Expand your API expertise</li>
+        <li>Use database queries to retrieve records that meet specific criteria</li>
+        <li>Validate user input both on the client and server sides</li>
+        <li>Detect errors in arithmetic expressions such as missing or invalid operands, invalid operators, undefined or infinite results</li>
+        <li>Compare the results of arithmetic expressions as evaluated by JavaScript and Python</li>
+    </ul>
+
+<h3>Requirements</h3>
+    <p><strong>Overview:</strong> </p>
+    <ul>
+        <li>Abstract APILinks to an external site. provides an IP address geolocation service.  From an IP address this API can determine your location on Earth.</li>
+        <li>Create a free account on AbstractAPI.com to obtain an API key to use their service.  It may take a few hours to get their email messages, so do this early on.</li>
+        <li>fetch() https://ipgeolocation.abstractapi.com/v1/Links to an external site. to find the user's latitude & longitude based on the requester's IP address.</li>
+        <li>Read the documentationLinks to an external site. to learn how to use this API.  Many students over-complicate getting the requester's IP address.  If it takes you more than 30 seconds to figure this out, read the documentation again!</li>
+        <li>Make another request to OpenWeatherMap to obtain the 5-day/3-hour forecast (scroll down and you'll see it).  .</li>
+        <li>Demonstrate that you can correctly use Promises with Vu</li>
+        <li>Use Vue to populate the DOM with the user's location and weather information</li>
+        <li>While data are in-flight use Vue's conditional rendering to display a "Loading" message that asks the user to be patient while APIs are consulted.</li>
+        <li>Display the title of the page in a large header.</li>
+        <li>Create a div to display the user's latitude & longitude, city, state/province and country as determined by the geolocation APi</li>
+        <li>Current weather data are displayed in a div of their own.  Include at minimum the following information obtained from OpenWeatherMap:</li>
+        <li>Create a div to contain the 5-day/3-hour forecast.</li>
+    </ul>
+
+
+</div>
+
+<div style="background-color: DeepSkyBlue" class="stuff-box">
+    <h2>Phase 1: Design</h2>
+    <p><strong>outline: </strong> Start with making each of the pages and the lines to switch between them</p>
+    <h3>JavaScript</h3>
+    <p><b>go_fetch()</b></p>
+    <p>fetch url + api key</p>
+    <p>get current long and lat</p>
+    <p>catch any errors</p>
+    <p><b>current weather</b></p>
+    <p>fetch url with correct parem</p>
+    <p>store data</p>
+    <p><b>createDiv()</b></p>
+    <p>create div</p>
+    <p>if input good fill div</p>
+    <p>if not fill div with error msg</p>
+    <h3>Toggle()</h3>
+    <p>if currentState = gray </p>
+    <p>     newState = green</p>
+    <p>     neutral--</p>
+    <p>     likely++</p>
+    <p>else if currentState = green</p>
+    <p>      newState = red</p>
+    <p>      likely--</p>
+    <p>      this.unlikely</p>
+    <p>else</p>
+    <p>       newState = gray</p>
+    <p>       unlikely--</p>
+    <p>       neutral++</p>
+
+</div>
+
+
+<div style="background-color: DodgerBlue" class="stuff-box">
+<h2>Phase 2: Implementation</h2>
+<h3>----Things to note-----</h3>
+    <p>Keep it simple stupid</p>
+    <p>read the all the hints first</p>
+    <p>Let django do the heavy lifting</p>
+    <p>. It is easy to be overwhelmed by a large JSON response.</p>
+    <p>Spend time in the REPL </p>
+    <p>curl was very helpful.</p>
+    <p>USE PROMISE CHAINS</p>
+
+</div>
+
+<div style="background-color: CornflowerBlue" class="stuff-box">
+<h2>Phase 3: Testing & Debugging</h2>
+
+    <p>A lot of the headers would send over would be duplicated</p>
+    <p><em>lots of small issues with dependencies</em></p>
+</div>
+
+<div style="background-color: MediumSlateBlue" class="stuff-box">
+<h2>Phase 4: Deployment</h2>
+<p>pushed and all good to go B)</p>
+</div>
+
+<div style="background-color: RoyalBlue" class="stuff-box">
+<h2>Phase 5: Maintenance</h2>
+<h3>What parts of your program are sloppily written and hard to understand?</h3>
+    <p>I think the sloppiest think i did had to do with my variable names. they are a little confusing</p>
+<h3>Will your documentation make sense to...</h3>
+<P>... your computer's hardware?</P> <em>I think so, it at least is reading it and interoperating it correctly</em>
+<p>..the operating system?</p>
+<p>...to the next version of Python? Yes</p>
+<h3>How easy will it be to add a new feature to this program in a year?</h3>
+<p>I think it is set up well enough such that additions can easily be made</p>
+<h3>Will your program continue to work after upgrading...</h3>
+<p>It should for a long time</p>
+
+</div>
+
+</body>
+
+
+</html>

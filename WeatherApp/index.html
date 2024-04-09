@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div style="background:PaleTurquoise" class="stuff-box">
+    <h1>Vue.js Weather App</h1>
+    <a href="plan.html">Plan</a>
+</div>
+
+<div id="app">
+    <div style="background:Aquamarine" class="stuff-box">
+    <h2>Location</h2>
+        <p>{{location}}</p>
+        <p>{{coordinates}}</p>
+    </div>
+
+    <div v-if="errorApi" style="background:red" class="stuff-box">
+    <h1>An Error as occurred</h1>
+        <p>I am sorry but there was an error trying to fetch the data:( we are unable to retrieve the data at this moment</p>
+  </div>
+
+    <div style="background:Turquoise" class="stuff-box">
+        <h2>Current Weather</h2>
+        <p>Current: {{current_temp}}</p>
+        <p>{{current_description}}</p>
+        <p>High: {{current_max}}</p>
+        <p>Low: {{current_min}}</p>
+        <p>Humidity: {{current_hum}}%</p>
+        <p>Pressure: {{current_pres}} hPa</p>
+    </div>
+
+    <div style="background:DarkTurquoise" class="stuff-box">
+        <h2>5-day/3-hour forecast</h2>
+        <p>
+            <text style="color:red"> {{unlikely}} unlikely </text>
+            <text style="color:gray"> {{neutral}} neutral </text>
+            <text style="color:green"> {{likely}} likely </text>
+        </p>
+        <div class="stuff-box"
+             v-for="(item, idx) in forecast"
+             v-on:click="toggle"
+             :class="states[idx]"
+             :data-index="idx"
+             style="cursor: pointer"
+             >
+                <h3>{{item.dt_txt}}</h3>
+                <p>Temperature: {{item.main.temp}}ºF</p>
+                <p>{{item.weather[0].description}}</p>
+                <p>Humidity: {{item.main.humidity}}%</p>
+                <p>Pressure: {{item.main.pressure}} hPa</p>
+                </div>
+
+    </div>
+
+
+
+
+
+
+
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
